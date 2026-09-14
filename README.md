@@ -1,2 +1,2 @@
 # Inventory-order-management-API-in-Go
-REST API en Go para gestión de inventario y pedidos, con arquitectura en capas (handler-service-repository), procesamiento en lote vía worker pool con goroutines/channels, y documentación Swagger.
+A REST API built in Go for managing products, orders, and stock. It implements a layered architecture (handler → service → repository) following SOLID principles through interfaces, decoupling business logic from data persistence. It includes a batch processing endpoint optimized with a goroutine- and channel-based worker pool for efficient handling of concurrent operations. Endpoint documentation is generated with Swagger, and the project is set up for deployment on AWS (EC2/Lambda).
