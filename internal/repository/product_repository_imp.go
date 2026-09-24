@@ -38,8 +38,8 @@ func (r *ProductRepositoryImp) CreateProduct(product *model.Product) error {
 	return nil
 }
 
-func (r *ProductRepositoryImp) UpdateProduct(product *model.Product) error {
-	err := r.db.Updates(product).Error
+func (r *ProductRepositoryImp) UpdateProduct(id uint, product *model.Product) error {
+	err := r.db.Model(&model.Product{}).Where("id = ?", id).Updates(product).Error
 	if err != nil {
 		return err
 	}

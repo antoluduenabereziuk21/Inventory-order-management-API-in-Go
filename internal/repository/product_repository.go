@@ -11,7 +11,7 @@ type ProductRepository interface {
 	// CreateProduct creates a new product.
 	CreateProduct(product *model.Product) error
 	// UpdateProduct updates an existing product.
-	UpdateProduct(product *model.Product) error
+	UpdateProduct(id uint, product *model.Product) error
 	// DeleteProduct deletes a product by its ID.
 	DeleteProduct(id uint) error
 }
