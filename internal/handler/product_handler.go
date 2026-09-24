@@ -22,12 +22,12 @@ func NewProductHandler(service service.ProductService) *ProductHandler {
 
 func (h *ProductHandler) GetProductByID(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	IdUint, err := uint64(strconv.ParseUint(id, 10, 64))
+	IdUint, err := strconv.ParseUint(id, 10, 64)
 	if err != nil {
 		http.Error(w, "Invalid product ID", http.StatusBadRequest)
 		return
 	}
-	product, err := h.service.GetProductByID(IdUint)
+	product, err := h.service.GetProductByID(uint(IdUint))
 	if err != nil {
 		http.Error(w, "Product not found", http.StatusNotFound)
 		return
